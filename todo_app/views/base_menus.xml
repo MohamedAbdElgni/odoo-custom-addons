@@ -3,7 +3,7 @@
               name="Todo"
               web_icon="todo_app,static/description/icon.png"/>
 
-    <menuitem id="menu_root_ticket"
+    <menuitem id="menu_root_todo"
               name="Tickets"
               parent="menu_todo"/>
 </odoo>

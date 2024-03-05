@@ -10,6 +10,7 @@
                         <field name="number"/>
                         <field name="tag"/>
                         <field name="state"/>
+
                     </group>
                     <group>
                         <field name="file" filename="name"/>
@@ -29,6 +30,7 @@
                 <field name="number"/>
                 <field name="tag"/>
                 <field name="state"/>
+                <field name="create_date"/>
             </tree>
         </field>
     </record>
@@ -39,5 +41,5 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_ticket" name="Tickets" parent="menu_todo" action="action_ticket"/>
+    <menuitem id="menu_ticket" name="Tickets" parent="menu_root_todo" action="action_ticket"/>
 </odoo>
