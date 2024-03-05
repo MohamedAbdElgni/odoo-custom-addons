@@ -1,0 +1,9 @@
+<odoo>
+    <menuitem id="menu_todo"
+              name="Todo"
+              web_icon="todo_app,static/description/icon.png"/>
+
+    <menuitem id="menu_root_ticket"
+              name="Tickets"
+              parent="menu_todo"/>
+</odoo>
