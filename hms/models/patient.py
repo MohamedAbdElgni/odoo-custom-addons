@@ -27,4 +27,4 @@ class Patient(models.Model):
     ], default='undetermined')
     department_id = fields.Many2one("hms.department")
     department_capacity = fields.Integer(related="department_id.capacity")
-    doctor_id = fields.Many2one("hms.doctor")
+    doctor_id = fields.Many2many("hms.doctor")
