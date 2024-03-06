@@ -19,6 +19,11 @@
                             <field name="cr_ratio"/>
                             <field name="history"/>
                         </group>
+                        <group string="Additional Info">
+                                <field name="department_id"/>
+                                <field name="department_capacity"/>
+                                <field name="doctor_id"/>
+                        </group>
                       </group>
                 </sheet>
             </form>
@@ -36,6 +41,9 @@
                 <field name="address"/>
                 <field name="age"/>
                 <field name="blood_type"/>
+                <field name="department_id"/>
+                <field name="department_capacity"/>
+                <field name="doctor_id"/>
             </tree>
         </field>
     </record>

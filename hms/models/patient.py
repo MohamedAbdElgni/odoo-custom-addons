@@ -19,3 +19,6 @@ class Patient(models.Model):
     address = fields.Text()
     age = fields.Integer()
     history = fields.Html()
+    department_id = fields.Many2one("hms.department")
+    department_capacity = fields.Integer(related="department_id.capacity")
+    doctor_id = fields.Many2one("hms.doctor")
