@@ -14,7 +14,6 @@
             </form>
         </field>
     </record>
-
     <record id="view_department_tree" model="ir.ui.view">
         <field name="name">hms.department.tree</field>
         <field name="model">hms.department</field>
@@ -31,6 +30,5 @@
         <field name="res_model">hms.department</field>
         <field name="view_mode">tree,form</field>
     </record>
-
     <menuitem id="menu_department_list" name="Department List" parent="menu_department" action="action_department"/>
 </odoo>

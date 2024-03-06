@@ -14,7 +14,6 @@
             </form>
         </field>
     </record>
-
     <record id="view_doctor_tree" model="ir.ui.view">
         <field name="name">hms.doctor.tree</field>
         <field name="model">hms.doctor</field>
@@ -25,13 +24,10 @@
             </tree>
         </field>
     </record>
-
     <record id="action_doctor" model="ir.actions.act_window">
         <field name="name">Doctors</field>
         <field name="res_model">hms.doctor</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-    <menuitem id="menu_doctor" name="Doctors" parent="menu_hms"/>
     <menuitem id="menu_doctor_list" name="Doctor List" parent="menu_doctor" action="action_doctor"/>
 </odoo>

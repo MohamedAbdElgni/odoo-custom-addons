@@ -12,6 +12,7 @@
                             <field name="birth_date"/>
                             <field name="address"/>
                             <field name="age"/>
+                            <field name="image" widget="image" class="oe_avatar" size="100,100"/>
                         </group>
                         <group string="Medical Information">
                             <field name="blood_type"/>
@@ -29,8 +30,7 @@
                 </sheet>
             </form>
         </field>
-    </record>
-
+   </record>
     <record id="view_patient_tree" model="ir.ui.view">
         <field name="name">hms.patient.tree</field>
         <field name="model">hms.patient</field>
@@ -54,7 +54,6 @@
         <field name="res_model">hms.patient</field>
         <field name="view_mode">tree,form</field>
     </record>
-    <menuitem id="menu_patient" name="Patients" parent="menu_hms"/>
     <menuitem id="menu_patient_list" name="Patient List" parent="menu_patient" action="action_patient"/>
 </odoo>
 
