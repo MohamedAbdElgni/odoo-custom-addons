@@ -7,4 +7,13 @@
                 name="Patients"
                 parent="menu_hms"
                 />
+    <menuitem id="menu_department"
+                name="Departments"
+                parent="menu_hms"
+                />
+    <menuitem id="menu_doctor"
+                name="Doctors"
+                parent="menu_hms"
+                />
+
 </odoo>

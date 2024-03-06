@@ -5,8 +5,8 @@ class Patient(models.Model):
     _name = 'hms.patient'
     _description = 'Patient Record'
 
-    f_name = fields.Char()
-    l_name = fields.Char()
+    first_name = fields.Char()
+    last_name = fields.Char()
     birth_date = fields.Date()
     cr_ratio = fields.Float()
     blood_type = fields.Selection([
@@ -18,3 +18,4 @@ class Patient(models.Model):
     image = fields.Binary()
     address = fields.Text()
     age = fields.Integer()
+    history = fields.Html()

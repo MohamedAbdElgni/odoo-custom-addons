@@ -6,16 +6,20 @@
             <form string="Patient">
                 <sheet>
                     <group>
-                        <field name="f_name"/>
-                        <field name="l_name"/>
-                        <field name="birth_date"/>
-                        <field name="cr_ratio"/>
-                        <field name="blood_type"/>
-                        <field name="pcr"/>
-                        <field name="address"/>
-                        <field name="age"/>
-                        <field name="image" widget="image"/>
-                    </group>
+                        <group string="Personal Information">
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="birth_date"/>
+                            <field name="address"/>
+                            <field name="age"/>
+                        </group>
+                        <group string="Medical Information">
+                            <field name="blood_type"/>
+                            <field name="pcr"/>
+                            <field name="cr_ratio"/>
+                            <field name="history"/>
+                        </group>
+                      </group>
                 </sheet>
             </form>
         </field>
@@ -26,11 +30,12 @@
         <field name="model">hms.patient</field>
         <field name="arch" type="xml">
             <tree string="Patients">
-                <field name="f_name"/>
-                <field name="l_name"/>
+                <field name="first_name"/>
+                <field name="last_name"/>
                 <field name="birth_date"/>
                 <field name="address"/>
                 <field name="age"/>
+                <field name="blood_type"/>
             </tree>
         </field>
     </record>
