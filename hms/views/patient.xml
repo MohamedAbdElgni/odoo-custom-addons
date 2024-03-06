@@ -18,10 +18,11 @@
                             <field name="pcr"/>
                             <field name="cr_ratio"/>
                             <field name="history"/>
+                            <field name="states"/>
                         </group>
                         <group string="Additional Info">
                                 <field name="department_id"/>
-                                <field name="department_capacity"/>
+                                <field name="department_capacity" />
                                 <field name="doctor_id"/>
                         </group>
                       </group>
@@ -41,8 +42,9 @@
                 <field name="address"/>
                 <field name="age"/>
                 <field name="blood_type"/>
+                <field name="states"/>
                 <field name="department_id"/>
-                <field name="department_capacity"/>
+                <field name="department_capacity" string="Department Capacity"/>
                 <field name="doctor_id"/>
             </tree>
         </field>
