@@ -3,8 +3,38 @@
         <field name="name">hms.patient.form</field>
         <field name="model">hms.patient</field>
         <field name="arch" type="xml">
-            <form string="Patient">
-                <sheet>
+            <form string="Patient" style="width: 100%;" class="o_list_record_selector border mx-auto p-3">
+                <header>
+                    <button
+                            string="Undetermined"
+                            type="object"
+                            class="btn-primary"
+                            name="action_undetermined"
+                            invisible="states == 'undetermined'"/>
+                    />
+                    <button
+                            string="Good"
+                            type="object"
+                            class="btn-warning"
+                            name="action_good"
+                            invisible="states == 'good'"/>
+                    />
+                    <button
+                            string="Fair"
+                            type="object"
+                            class="btn-secondary"
+                            name="action_fair"
+                            invisible="states == 'fair'"/>
+                    />
+                    <button string="Serious"
+                            type="object"
+                            class="btn-danger"
+                            name="action_serious"
+                            invisible="states == 'serious'"/>
+                    />
+                    <field name="states" widget="statusbar" />
+                </header>
+                <sheet class="o_list_record_selector border mx-auto p-3 shadow">
                     <group>
                         <group string="Personal Information">
                             <field name="first_name"/>
@@ -19,17 +49,21 @@
                             <field name="pcr"/>
                             <field name="cr_ratio"/>
                             <field name="history"/>
-                            <field name="states"/>
-                        </group>
-                        <group string="Additional Info">
-                                <field name="department_id"/>
-                                <field name="department_capacity" />
 
                         </group>
+
                       </group>
                     <notebook>
-                        <page string="Logs">
-                            <field name="log_ids"/>
+                        <page string="History" name="log">
+                            <group>
+                                <field name="log" widget="one2many_list">
+                                    <tree string="History">
+                                        <field name="date"/>
+                                        <field name="description"/>
+                                        <field name="created_by"/>
+                                    </tree>
+                                </field>
+                            </group>
                         </page>
                     </notebook>
                 </sheet>
@@ -37,10 +71,11 @@
         </field>
    </record>
     <record id="view_patient_tree" model="ir.ui.view">
+
         <field name="name">hms.patient.tree</field>
         <field name="model">hms.patient</field>
         <field name="arch" type="xml">
-            <tree string="Patients">
+            <tree string="Patients" class="o_list_record_selector border mx-auto p-3" >
                 <field name="first_name"/>
                 <field name="last_name"/>
                 <field name="birth_date"/>
