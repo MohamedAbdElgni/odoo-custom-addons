@@ -3,8 +3,8 @@
         <field name="name">hms.patient.form</field>
         <field name="model">hms.patient</field>
         <field name="arch" type="xml">
-            <form string="Patient" style="width: 100%;" class="o_list_record_selector border mx-auto p-3">
-                <header>
+            <form string="Patient"  class="mx-auto p-3">
+                <header class="">
                     <button
                             string="Undetermined"
                             type="object"
@@ -15,7 +15,7 @@
                     <button
                             string="Good"
                             type="object"
-                            class="btn-warning"
+                            class="btn-success"
                             name="action_good"
                             invisible="states == 'good'"/>
                     />
@@ -34,7 +34,7 @@
                     />
                     <field name="states" widget="statusbar" />
                 </header>
-                <sheet class="o_list_record_selector border mx-auto p-3 shadow">
+                <sheet class="">
                     <group>
                         <group string="Personal Information">
                             <field name="first_name"/>
@@ -47,11 +47,17 @@
                         <group string="Medical Information">
                             <field name="blood_type"/>
                             <field name="pcr"/>
-                            <field name="cr_ratio"/>
-                            <field name="history"/>
+                            <field name="cr_ratio" />
+                            <field name="history" invisible="age &lt; 50"/>
 
                         </group>
+                        <group string="Department Information">
+                            <field name="department_id"/>
+                            <field name="department_capacity" string="Department Capacity"/>
 
+                            <field name="doctor_id" readonly="department_id==False"/>
+
+                        </group>
                       </group>
                     <notebook>
                         <page string="History" name="log">
@@ -75,14 +81,18 @@
         <field name="name">hms.patient.tree</field>
         <field name="model">hms.patient</field>
         <field name="arch" type="xml">
-            <tree string="Patients" class="o_list_record_selector border mx-auto p-3" >
+            <tree string="Patients" class="border mx-auto p-3 shadow" >
                 <field name="first_name"/>
                 <field name="last_name"/>
                 <field name="birth_date"/>
                 <field name="address"/>
                 <field name="age"/>
                 <field name="blood_type"/>
-                <field name="states"/>
+                <field name="states" widget="badge"
+                            decoration-danger="states == 'serious'"
+                            decoration-warning="states == 'fair'"
+                            decoration-info="states == 'good'"
+                />
                 <field name="department_id"/>
                 <field name="department_capacity" string="Department Capacity"/>
                 <field name="doctor_id"/>

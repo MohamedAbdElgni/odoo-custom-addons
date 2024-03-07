@@ -8,5 +8,5 @@ class Doctor(models.Model):
     first_name = fields.Char(reqired=True)
     last_name = fields.Char(required=True)
     image = fields.Binary()
-    patient_id = fields.Many2many("hms.patient")
+    patient_id = fields.One2many("hms.patient", "doctor_id")
     department_id = fields.Many2one("hms.department")
