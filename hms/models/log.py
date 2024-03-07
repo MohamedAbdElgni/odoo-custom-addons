@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class Log(models.Model):
@@ -9,4 +9,9 @@ class Log(models.Model):
     patient_id = fields.Many2one("hms.patient", required=True, readonly=True)
     date = fields.Date(default=fields.Date.today, readonly=True)
     description = fields.Text(required=True)
-    created_by = fields.Many2one("res.users", default=lambda self: self.env.user, readonly=True)
+    created_by = fields.Many2one("res.users")
+
+    @api.model
+    def create(self, vals):
+        vals["created_by"] = self.env.user.id
+        return super(Log, self).create(vals)
