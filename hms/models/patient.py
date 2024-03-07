@@ -28,3 +28,4 @@ class Patient(models.Model):
     department_id = fields.Many2one("hms.department")
     department_capacity = fields.Integer(related="department_id.capacity")
     doctor_id = fields.Many2many("hms.doctor")
+    log_ids = fields.One2many("hms.log", "patient_id")

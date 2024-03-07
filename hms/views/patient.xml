@@ -24,9 +24,14 @@
                         <group string="Additional Info">
                                 <field name="department_id"/>
                                 <field name="department_capacity" />
-                                <field name="doctor_id"/>
+
                         </group>
                       </group>
+                    <notebook>
+                        <page string="Logs">
+                            <field name="log_ids"/>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

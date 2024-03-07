@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_patient,access_patient,model_hms_patient,,1,1,1,1
 access_department,access_department,model_hms_department,,1,1,1,1
 access_doctor,access_doctor,model_hms_doctor,,1,1,1,1
+access_log,access_log,model_hms_log,,1,1,1,1
