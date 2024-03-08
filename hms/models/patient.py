@@ -1,5 +1,5 @@
 from odoo import models, fields, api
-from odoo.exceptions import ValidationError, AccessError
+from odoo.exceptions import ValidationError
 
 
 class Patient(models.Model):
