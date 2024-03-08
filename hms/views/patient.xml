@@ -3,8 +3,8 @@
         <field name="name">hms.patient.form</field>
         <field name="model">hms.patient</field>
         <field name="arch" type="xml">
-            <form string="Patient"  class="mx-auto p-3">
-                <header class="">
+            <form string="Patient">
+                <header>
                     <button
                             string="Undetermined"
                             type="object"
@@ -32,9 +32,19 @@
                             name="action_serious"
                             invisible="states == 'serious'"/>
                     />
-                    <field name="states" widget="statusbar" />
+                    <field name="states" widget="statusbar"/>
+
+                </header>
+                <header>
+                    <button
+                            string="Add Log"
+                            type="object"
+                            class="btn-success text-center"
+                            name="action_add_log"
+                    />
                 </header>
                 <sheet class="">
+
                     <group>
                         <group string="Personal Information">
                             <field name="first_name"/>
@@ -42,27 +52,24 @@
                             <field name="birth_date"/>
                             <field name="address"/>
                             <field name="age"/>
-                            <field name="image" widget="image" class="oe_avatar" size="100,100"/>
+                            <field name="image" widget="image" class="rounded-circle" options='{"size": [100, 100]}'/>
                         </group>
                         <group string="Medical Information">
                             <field name="blood_type"/>
                             <field name="pcr"/>
                             <field name="cr_ratio" />
                             <field name="history" invisible="age &lt; 50"/>
-
-                        </group>
-                        <group string="Department Information">
                             <field name="department_id"/>
-                            <field name="department_capacity" string="Department Capacity"/>
-
                             <field name="doctor_id" readonly="department_id==False"/>
-
                         </group>
                       </group>
                     <notebook>
                         <page string="History" name="log">
                             <group>
-                                <field name="log" widget="one2many_list">
+                                <field name="log"
+                                       widget="one2many_list"
+                                       readonly="1"
+                                       >
                                     <tree string="History">
                                         <field name="date"/>
                                         <field name="description"/>
@@ -77,14 +84,18 @@
         </field>
    </record>
     <record id="view_patient_tree" model="ir.ui.view">
-
         <field name="name">hms.patient.tree</field>
         <field name="model">hms.patient</field>
         <field name="arch" type="xml">
-            <tree string="Patients" class="border mx-auto p-3 shadow" >
+            <tree string="Patients"
+                  decoration-danger="states == 'serious'"
+                  decoration-warning="states == 'fair'"
+                  decoration-info="states == 'good'"
+                  class="text-capitalize"
+            >
+
                 <field name="first_name"/>
                 <field name="last_name"/>
-                <field name="birth_date"/>
                 <field name="address"/>
                 <field name="age"/>
                 <field name="blood_type"/>
@@ -94,8 +105,11 @@
                             decoration-info="states == 'good'"
                 />
                 <field name="department_id"/>
-                <field name="department_capacity" string="Department Capacity"/>
                 <field name="doctor_id"/>
+<!--                <field name="image"-->
+<!--                       widget="image"-->
+<!--                       class="rounded-circle rounded-sm"-->
+<!--                       options='{"size": [25, 25]}'/>-->
             </tree>
         </field>
     </record>
@@ -106,4 +120,3 @@
     </record>
     <menuitem id="menu_patient_list" name="Patient List" parent="menu_patient" action="action_patient"/>
 </odoo>
-

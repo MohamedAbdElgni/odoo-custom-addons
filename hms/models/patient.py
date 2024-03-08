@@ -63,6 +63,13 @@ class Patient(models.Model):
                 "description": "The patient's state has been changed to serious."
             })
 
+    def action_add_log(self):
+        action = self.env['ir.actions.actions']._for_xml_id('hms.action_add_log_wizard') # noqa
+        action['context'] = {
+            'default_patient_id': self.id, # noqa
+        }
+        return action
+
     @api.onchange('age')
     def _onchange_age(self):
         for rec in self:

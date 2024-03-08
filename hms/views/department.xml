@@ -14,7 +14,6 @@
             </form>
         </field>
     </record>
-
     <record id="view_department_tree" model="ir.ui.view">
         <field name="name">hms.department.tree</field>
         <field name="model">hms.department</field>
@@ -26,7 +25,6 @@
             </tree>
         </field>
     </record>
-
     <record id="view_department_kanban" model="ir.ui.view">
     <field name="name">hms.department.kanban.view</field>
     <field name="model">hms.department</field>
@@ -41,7 +39,7 @@
                     <div class="oe_kanban_card shadow p-3 mb-5 bg-white rounded text-center">
                         <div class="oe_kanban_card_header">
                             <div class="oe_kanban_card_header_title">
-                                <h3 t-esc="record.name.value"/>
+                                <h3 t-esc="record.name.value" class="text-primary text-capitalize"/>
                             </div>
                             <div class="oe_kanban_details">
                                 <strong>
@@ -55,23 +53,18 @@
                                 Capacity:
                                 <span t-esc="record.capacity.value"/>
                             </div>
-
                             <div class="mt-2">
                                 <strong>
                                     Available Capacity:
                                     <span t-esc="record.available_capacity.value" class="text-success"/>
                                 </strong>
-
                             </div>
                         </div>
                         <hr/>
-                        <div class="oe_kanban_card_content mt-4 d-flex justify-content-around">
-                             <span class="btn btn-success"
-                                   >Edite</span>
-                            <span class="btn btn-warning"
-                                      >Delete</span>
-                            <span class="btn btn-primary"
-                                  >Details</span>
+                        <div class="oe_kanban_card_content d-flex justify-content-around">
+                            <span class="btn btn-success">Edite</span>
+                            <span class="btn btn-warning">Delete</span>
+                            <span class="btn btn-primary">Details</span>
                         </div>
                         <hr/>
                     </div>
@@ -80,7 +73,6 @@
         </kanban>
     </field>
 </record>
-
     <record id="action_department_list" model="ir.actions.act_window">
         <field name="name">Department List</field>
         <field name="res_model">hms.department</field>
@@ -91,8 +83,6 @@
         <field name="res_model">hms.department</field>
         <field name="view_mode">kanban,form</field>
     </record>
-
-
     <menuitem id="menu_department_kanban" name="Departments" parent="menu_department" action="action_department_kanban"/>
     <menuitem id="menu_department_list" name="List" parent="menu_department" action="action_department_list"/>
 </odoo>

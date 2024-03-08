@@ -1,0 +1,24 @@
+<odoo>
+    <record id="view_add_log_wizard" model="ir.ui.view">
+        <field name="name">add.log.wizard</field>
+        <field name="model">add.log.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Add Log">
+                <group>
+                    <field name="description"/>
+                </group>
+                <footer>
+                    <button string="Add Log" type="object" class="btn-warning" name="action_add_log"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_add_log_wizard" model="ir.actions.act_window">
+        <field name="name">Add Log</field>
+        <field name="res_model">add.log.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="hms.view_add_log_wizard"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

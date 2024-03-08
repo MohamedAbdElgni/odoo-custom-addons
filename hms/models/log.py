@@ -5,6 +5,7 @@ class Log(models.Model):
     _name = 'hms.log'
     _description = 'Log Record'
     _rec_name = 'date'
+    _order = 'id desc'
 
     patient_id = fields.Many2one("hms.patient", required=True, readonly=True, ondelete="cascade")
     date = fields.Date(default=fields.Date.today, readonly=True)
