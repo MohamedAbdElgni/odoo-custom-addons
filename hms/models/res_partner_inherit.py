@@ -20,3 +20,11 @@ class ResPartner(models.Model):
             if not rec.vat:
                 raise UserError("Sorry, VAT is mandatory.")
 
+    @api.constrains('email')
+    def unique_email(self):
+        for rec in self:
+            if rec.email:
+                patient = self.env['hms.patient'].search([('email', '=', rec.email)])
+                if patient:
+                    raise UserError("This email is related to a patient.")
+

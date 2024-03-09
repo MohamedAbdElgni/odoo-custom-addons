@@ -37,7 +37,6 @@ class Patient(models.Model):
     doctor_id = fields.Many2one("hms.doctor", readonly=True)
     log = fields.One2many("hms.log", "patient_id")
 
-
     def action_undetermined(self):
         for rec in self:
             rec.write({"states": "undetermined"})
