@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import fields, models
 
 
 class AddLogWizard(models.TransientModel):
@@ -14,4 +14,3 @@ class AddLogWizard(models.TransientModel):
             "patient_id": self.patient_id.id,
             "description": self.description,
         })
-
