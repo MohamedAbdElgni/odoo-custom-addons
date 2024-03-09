@@ -1,5 +1,4 @@
 from dateutil.relativedelta import relativedelta
-
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
@@ -9,7 +8,7 @@ class Patient(models.Model):
     _description = 'Patient Record'
     _rec_name = 'first_name'
     _sql_constraints = [
-        ('email_unique', 'unique(email)', 'This email is already exist!'),
+        ('unique_email', 'unique("email")', 'This email is already exist!'),
     ]
     first_name = fields.Char(required=True)
     last_name = fields.Char(required=True)
