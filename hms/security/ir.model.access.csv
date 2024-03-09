@@ -4,3 +4,5 @@ access_department,access_department,model_hms_department,,1,1,1,1
 access_doctor,access_doctor,model_hms_doctor,,1,1,1,1
 access_log,access_log,model_hms_log,,1,1,1,1
 access_log_wizard,access_log_wizard,model_add_log_wizard,,1,1,1,1
+access_sale_order,access_sale_order,model_sale_order,,1,1,1,1
+access_partner_inherit,access_partner_inherit,model_res_partner,,1,1,1,1

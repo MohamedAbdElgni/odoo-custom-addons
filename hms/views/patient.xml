@@ -39,7 +39,7 @@
                     <button
                             string="Add Log"
                             type="object"
-                            class="btn-success text-center"
+                            class="btn-outline-primary"
                             name="action_add_log"
                     />
                 </header>
@@ -50,9 +50,10 @@
                             <field name="first_name"/>
                             <field name="last_name"/>
                             <field name="birth_date"/>
+                            <field name="email"/>
                             <field name="address"/>
                             <field name="age"/>
-                            <field name="image" widget="image" class="rounded-circle" options='{"size": [100, 100]}'/>
+<!--                            <field name="image" widget="image" class="rounded-circle" options='{"size": [100, 100]}'/>-->
                         </group>
                         <group string="Medical Information">
                             <field name="blood_type"/>

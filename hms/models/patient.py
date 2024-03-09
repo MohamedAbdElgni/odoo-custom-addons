@@ -1,3 +1,5 @@
+from dateutil.relativedelta import relativedelta
+
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
@@ -6,9 +8,13 @@ class Patient(models.Model):
     _name = 'hms.patient'
     _description = 'Patient Record'
     _rec_name = 'first_name'
+    _sql_constraints = [
+        ('email_unique', 'unique(email)', 'This email is already exist!'),
+    ]
     first_name = fields.Char(required=True)
     last_name = fields.Char(required=True)
-    birth_date = fields.Date()
+    birth_date = fields.Date(required=True)
+    email = fields.Char(required=True)
     cr_ratio = fields.Float()
     blood_type = fields.Selection([
         ('A', 'A'),
@@ -18,7 +24,7 @@ class Patient(models.Model):
     pcr = fields.Boolean(default=False)
     image = fields.Binary()
     address = fields.Text()
-    age = fields.Integer(default=False, required=True)
+    age = fields.Integer(compute="_compute_age", readonly=True)
     history = fields.Html()
     states = fields.Selection([
         ('undetermined', 'Undetermined'),
@@ -30,6 +36,7 @@ class Patient(models.Model):
     department_capacity = fields.Integer(related="department_id.capacity")
     doctor_id = fields.Many2one("hms.doctor", readonly=True)
     log = fields.One2many("hms.log", "patient_id")
+
 
     def action_undetermined(self):
         for rec in self:
@@ -64,6 +71,7 @@ class Patient(models.Model):
             })
 
     def action_add_log(self):
+        """Link to wizard to add log to patient from patient form"""
         action = self.env['ir.actions.actions']._for_xml_id('hms.action_add_log_wizard') # noqa
         action['context'] = {
             'default_patient_id': self.id, # noqa
@@ -89,3 +97,18 @@ class Patient(models.Model):
         for rec in self:
             if rec.age < 1:
                 raise ValidationError("Age must be a positive number")
+
+    @api.depends('birth_date')
+    def _compute_age(self):
+        for rec in self:
+            if rec.birth_date:
+                rec.age = relativedelta(fields.Date.today(), rec.birth_date).years
+            else:
+                rec.age = 0
+
+    @api.constrains('email')
+    def _check_email(self):
+        for rec in self:
+            if rec.email:
+                if "@" not in rec.email and "." not in rec.email:
+                    raise ValidationError("Invalid email")

@@ -4,6 +4,8 @@
     'category': 'Management',
     'version': '17.0.0.1.0',
     'depends': ['base',
+                'sale',
+                'crm',
                 ],
     'application': True,
     'data': [
@@ -13,6 +15,8 @@
         'views/department.xml',
         'views/doctor.xml',
         'wizard/add_log_wizard.xml',
+        'views/sale_order.xml',
+        'views/res_partner.xml',
     ],
 
 }
