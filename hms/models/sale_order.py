@@ -13,4 +13,3 @@ class SaleOrder(models.Model):
                 raise UserError("Sorry, related patient's customer can't be deleted.")
         else:
             return super().unlink()
-

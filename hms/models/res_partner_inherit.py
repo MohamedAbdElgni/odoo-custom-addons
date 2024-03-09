@@ -27,4 +27,3 @@ class ResPartner(models.Model):
                 patient = self.env['hms.patient'].search([('email', '=', rec.email)])
                 if patient:
                     raise UserError("This email is related to a patient.")
-
