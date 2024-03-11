@@ -14,5 +14,7 @@
     <menuitem id="menu_doctor"
                 name="Doctors"
                 parent="menu_hms"
+                groups="hms.hms_manager"
+
                 />
 </odoo>

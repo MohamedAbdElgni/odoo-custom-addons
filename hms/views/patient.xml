@@ -53,7 +53,7 @@
                             <field name="email"/>
                             <field name="address"/>
                             <field name="age"/>
-<!--                            <field name="image" widget="image" class="rounded-circle" options='{"size": [100, 100]}'/>-->
+<field name="image" widget="image" class="rounded-circle" options='{"size": [100, 100]}'/>
                         </group>
                         <group string="Medical Information">
                             <field name="blood_type"/>
@@ -61,7 +61,7 @@
                             <field name="cr_ratio" />
                             <field name="history" invisible="age &lt; 50"/>
                             <field name="department_id"/>
-                            <field name="doctor_id" readonly="department_id==False"/>
+                            <field name="doctor_id" readonly="department_id==False" groups="hms.hms_manager"/>
                         </group>
                       </group>
                     <notebook>

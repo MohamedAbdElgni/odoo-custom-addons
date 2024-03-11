@@ -10,6 +10,7 @@
     'application': True,
     'data': [
         'security/ir.model.access.csv',
+        'security/security.xml',
         'views/base_menus.xml',
         'views/patient.xml',
         'views/department.xml',
@@ -17,6 +18,7 @@
         'wizard/add_log_wizard.xml',
         'views/sale_order.xml',
         'views/res_partner.xml',
+        'reports/patient_report.xml',
     ],
 
 }

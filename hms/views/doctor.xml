@@ -31,5 +31,5 @@
         <field name="res_model">hms.doctor</field>
         <field name="view_mode">tree,form</field>
     </record>
-    <menuitem id="menu_doctor_list" name="Doctor List" parent="menu_doctor" action="action_doctor"/>
+    <menuitem id="menu_doctor_list" name="Doctor List" parent="menu_doctor" action="action_doctor" />
 </odoo>
